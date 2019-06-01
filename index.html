@@ -13,21 +13,25 @@
     <div id="LOTTO"></div>
 
     <script>
-        // TODO 랜덤으로 번호를 뽑는 함수를 만들어주세요
+        var LOTTO = document.getElementById("LOTTO");
+        // 로또 번호 추첨 함수
+        function getLuckyNumber(){
+            var numbers = [];
+            while( numbers.length < 6 ) {
+                var newNumber = genLottoNo();
+                if( numbers.indexOf(newNumber)<0 ) { // 중복검사
+                    numbers.push(newNumber);
+                }
+            }
+            LOTTO.innerHTML = numbers.join(" ");
+        }
+    
+        // 랜덤 번호 생성 함수
+        function genLottoNo(){
+            return Math.floor(Math.random()*45) +1
+        }   
+        
     </script>
 </body>
 
-<script>
-    var LOTTO = document.getElementById("LOTTO");
-    // 로또 번호 추첨 함수
-    function getLuckyNumber() {
-        LOTTO.innerHTML = genLottoNo();
-        // TODO 7개로 만들어주시면 감사하겠습니다.
-    }
-
-    // 랜덤 번호 생성 함수
-    function genLottoNo(){
-        return Math.floor(Math.random()*45) +1
-    }
-</script>
 </html>
